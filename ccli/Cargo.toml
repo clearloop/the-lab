@@ -1,6 +1,6 @@
 [package]
 name = "ccli"
-description = "Common command line interface"
+description = "Common command line interface."
 documentation = "https://docs.rs/ccli"
 version = "0.0.1"
 authors.workspace = true
