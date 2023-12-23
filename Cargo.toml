@@ -1,0 +1,25 @@
+[workspace.package]
+authors = [ "clearloop" ]
+edition = "2021"
+license = "GPL-3.0-only"
+homepage = "https://github.com/clearloop/crates"
+repository = "https://github.com/clearloop/crates.git"
+
+[workspace]
+members = [
+  "ccli",
+  "conta"
+]
+resolver = "2"
+
+[workspace.dependencies]
+anyhow = "1.0.76"
+ccli = { path = "ccli" }
+clap = "4.4.11"
+color-eyre = "0.6.2"
+reqwest = { version = "0.11.23", default-features = false }
+semver = "1.0.20"
+serde = { version = "1.0.193", default-features = false }
+toml = "0.8.8"
+toml_edit = "0.21.0"
+tracing-subscriber = "0.3.18"
