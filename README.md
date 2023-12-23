@@ -1,4 +1,4 @@
-# The Lab
+# The Lab 🧪
 
 > [!TIP]
 >
