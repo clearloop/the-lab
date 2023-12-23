@@ -22,7 +22,7 @@ impl Version {
     pub fn run(&self, manifest: &PathBuf, config: Config) -> Result<()> {
         let mut workspace = Document::from_str(&std::fs::read_to_string(manifest)?)?;
         let bump = self.bump.run(
-            &workspace["workspace"]["package"]["version"]
+            workspace["workspace"]["package"]["version"]
                 .as_str()
                 .ok_or_else(|| anyhow!("No version found in [workspace.package]"))?,
         )?;
