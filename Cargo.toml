@@ -4,6 +4,7 @@ edition = "2021"
 license = "GPL-3.0-only"
 homepage = "https://github.com/clearloop/crates"
 repository = "https://github.com/clearloop/crates.git"
+version = "0.0.1"
 
 [workspace]
 members = [

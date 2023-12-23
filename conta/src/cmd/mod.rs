@@ -1,5 +1,5 @@
 pub use crate::{
-    cmd::{bump::Bump, publish::Publish},
+    cmd::{publish::Publish, version::Version},
     Config,
 };
 use anyhow::Result;
@@ -9,13 +9,13 @@ use ccli::{
 };
 use std::path::PathBuf;
 
-mod bump;
 mod publish;
+mod version;
 
 /// Commands of this tool.
 #[derive(Debug, Parser, Clone)]
 pub enum Command {
-    Bump(Bump),
+    Version(Version),
     Publish(Publish),
 }
 
@@ -63,7 +63,7 @@ impl App for Conta {
         let config = self.config()?;
 
         match &self.command {
-            Command::Bump(bump) => bump.run(&manifest, config),
+            Command::Version(version) => version.run(&manifest, config),
             Command::Publish(publish) => publish.run(&manifest, config.packages),
         }
     }
