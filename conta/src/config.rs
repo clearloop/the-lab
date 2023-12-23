@@ -39,9 +39,9 @@ impl Config {
         let cwd = env::current_dir()?;
         let conta = cwd.join("Conta.toml");
         if conta.exists() {
-            return Self::from_path(conta);
+            Self::from_path(conta)
         } else {
-            return Self::from_manifest(cwd.join("Cargo.toml"));
+            Self::from_manifest(cwd.join("Cargo.toml"))
         }
     }
 }
