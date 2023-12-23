@@ -1,7 +1,7 @@
 //! The library of conta
 
 pub use crate::{
-    cmd::{Bump, Conta, Publish},
+    cmd::{Conta, Publish, Version},
     config::Config,
 };
 

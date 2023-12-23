@@ -1,5 +1,5 @@
 pub use crate::{
-    cmd::{bump::Bump, publish::Publish},
+    cmd::{publish::Publish, version::Version},
     Config,
 };
 use anyhow::Result;
@@ -7,15 +7,15 @@ use ccli::{
     clap::{self, Parser},
     App,
 };
-use std::{fs, path::PathBuf};
+use std::path::PathBuf;
 
-mod bump;
 mod publish;
+mod version;
 
 /// Commands of this tool.
 #[derive(Debug, Parser, Clone)]
 pub enum Command {
-    Bump(Bump),
+    Version(Version),
     Publish(Publish),
 }
 
@@ -49,13 +49,7 @@ impl Conta {
 
     /// Parse the config from the input path.
     pub fn config(&self) -> Result<Config> {
-        let path = if let Some(p) = &self.config {
-            p.into()
-        } else {
-            PathBuf::from("Conta.toml")
-        };
-
-        toml::from_str(&fs::read_to_string(path)?).map_err(Into::into)
+        Config::from_optional(self.config.as_deref())
     }
 }
 
@@ -69,7 +63,7 @@ impl App for Conta {
         let config = self.config()?;
 
         match &self.command {
-            Command::Bump(bump) => bump.run(&manifest, config),
+            Command::Version(version) => version.run(&manifest, config),
             Command::Publish(publish) => publish.run(&manifest, config.packages),
         }
     }

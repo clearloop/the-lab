@@ -1,4 +1,4 @@
-# Hexaconta
+# Conta
 
 Back to 3000 years ago in Zhou dynasty, the emperor of Zhou rides carriage
 with 6 horses, now, ride your crates with 6 horses like the emperor!
