@@ -23,3 +23,9 @@ serde = { version = "1.0.193", default-features = false }
 toml = "0.8.8"
 toml_edit = "0.21.0"
 tracing-subscriber = "0.3.18"
+
+[workspace.metadata.conta]
+packages = [
+  "ccli",
+  "conta"
+]

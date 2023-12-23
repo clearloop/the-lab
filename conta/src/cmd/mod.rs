@@ -7,7 +7,7 @@ use ccli::{
     clap::{self, Parser},
     App,
 };
-use std::{fs, path::PathBuf};
+use std::path::PathBuf;
 
 mod bump;
 mod publish;
@@ -49,13 +49,7 @@ impl Conta {
 
     /// Parse the config from the input path.
     pub fn config(&self) -> Result<Config> {
-        let path = if let Some(p) = &self.config {
-            p.into()
-        } else {
-            PathBuf::from("Conta.toml")
-        };
-
-        toml::from_str(&fs::read_to_string(path)?).map_err(Into::into)
+        Config::from_optional(self.config.as_deref())
     }
 }
 
