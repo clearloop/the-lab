@@ -14,9 +14,9 @@ members = [
 resolver = "2"
 
 [workspace.dependencies]
-anyhow = "1.0.76"
+anyhow = "1.0.78"
 ccli = { path = "ccli", version = "0.0.1" }
-clap = "4.4.11"
+clap = "4.4.12"
 color-eyre = "0.6.2"
 reqwest = { version = "0.11.23", default-features = false }
 semver = "1.0.20"
